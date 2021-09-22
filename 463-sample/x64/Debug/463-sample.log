@@ -1,0 +1,16 @@
+﻿  pch.cpp
+  cpu.cpp
+  DNS.cpp
+  main.cpp
+C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\463-sample\main.cpp(125,143): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Socket.cpp
+C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\463-sample\Socket.cpp(90,5): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  URL.cpp
+  winsock.cpp
+  Generating Code...
+HTMLParser_debug_x64.lib(HTMLParserBase.obj) : warning LNK4099: PDB 'HTMLParser.pdb' was not found with 'HTMLParser_debug_x64.lib(HTMLParserBase.obj)' or at 'C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\HTMLParser.pdb'; linking object as if no debug info
+HTMLParser_debug_x64.lib(IRLBuffer.obj) : warning LNK4099: PDB 'HTMLParser.pdb' was not found with 'HTMLParser_debug_x64.lib(IRLBuffer.obj)' or at 'C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\HTMLParser.pdb'; linking object as if no debug info
+HTMLParser_debug_x64.lib(IRLparser.obj) : warning LNK4099: PDB 'HTMLParser.pdb' was not found with 'HTMLParser_debug_x64.lib(IRLparser.obj)' or at 'C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\HTMLParser.pdb'; linking object as if no debug info
+HTMLParser_debug_x64.lib(stdafx.obj) : warning LNK4099: PDB 'HTMLParser.pdb' was not found with 'HTMLParser_debug_x64.lib(stdafx.obj)' or at 'C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\HTMLParser.pdb'; linking object as if no debug info
+HTMLParser_debug_x64.lib(URL.obj) : warning LNK4099: PDB 'HTMLParser.pdb' was not found with 'HTMLParser_debug_x64.lib(URL.obj)' or at 'C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\HTMLParser.pdb'; linking object as if no debug info
+  463-sample.vcxproj -> C:\Users\austi\Downloads\463-sample (1)\463Homework1.1\x64\Debug\463-sample.exe
