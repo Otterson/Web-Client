@@ -184,7 +184,7 @@ void stats_function(Parameters* p) {
 		//TODO links found
 		printf("[%3d]  %6d Q %7d E %6d H %6d D %5d I %5d R %5d C %4d L\n", time, p->queue_size, p->extracted_url, p->unique_hosts, p->DNS_lookup, p->unique_IP, p->robots_passed, p->valid_http, p->links_found);
 		pps = ((p->pages_read) / 2);
-		mbps = ((p->bytes_read ) / 2 / 1000);
+		mbps = ((p->bytes_read ) / 2 / 1000/8);
 		p->pages_read = 0;
 		p->bytes_read = 0;
 		printf("      *** crawling %.2f pps @ %.2f Mbps\n", (float)pps, (float)mbps);
@@ -195,13 +195,13 @@ void stats_function(Parameters* p) {
 			break;
 		}
 	}
-	int placeholder = 0;
+	
 	cout << endl;
-	printf("Extracted %d URLs @ %d/s\n", p->extracted_url, placeholder);
-	printf("Looked up %d DNS names @ %d/s\n", p->DNS_lookup, placeholder);
-	printf("Attempted %d robots @ %d/s\n", p->robots_passed, placeholder);
-	printf("Crawled %d pages @ %d/s\n", p->valid_http, placeholder);
-	printf("Parsed %d links @ %d/s\n", p->links_found, placeholder);
+	printf("Extracted %d URLs @ %d/s\n", p->extracted_url, p->extracted_url/time);
+	printf("Looked up %d DNS names @ %d/s\n", p->DNS_lookup, p->DNS_lookup/time);
+	printf("Attempted %d robots @ %d/s\n", p->robots_passed, p->robots_passed/time);
+	printf("Crawled %d pages @ %d/s\n", p->valid_http, p->valid_http/time);
+	printf("Parsed %d links @ %d/s\n", p->links_found, p->links_found/time);
 	printf("HTTP codes: 2xx = %d, 3xx = %d, 4xx = %d, 5xx = %d, other = %d\n\n", p->http2xx, p->http3xx, p->http4xx, p->http5xx, p->other);
 
 }
@@ -254,18 +254,18 @@ bool populate_queue(string filename, queue<string>* urls) {
 int main(int argc, char** argv)
 {
 
-	//if (argc != 3) {
-	//	cout << "Invalid parameters: ./463-sample.exe <num threads> <filename.txt>" << endl;
-	//	return 0;
-	//}
+	if (argc != 3) {
+		cout << "Invalid parameters: ./463-sample.exe <num threads> <filename.txt>" << endl;
+		return 0;
+	}
 
-	//int num_threads = atoi(argv[1]); //may need char* to int conversion
-	//
-	//string url_filename = argv[2];
+	int num_threads = atoi(argv[1]); //may need char* to int conversion
+	
+	string url_filename = argv[2];
 
-	int num_threads = 4000;
+	//int num_threads = 2500;
 	//string url_filename = "URL-input-100.txt";
-	string url_filename = "URL-input-1M.txt";
+	//string url_filename = "URL-input-1M.txt";
 	//string url_filename = "URL-input-1M-2019.txt";
 
 	queue<string>* url_list = new queue<string>;
@@ -304,6 +304,7 @@ int main(int argc, char** argv)
 		WaitForSingleObject(handles[i], INFINITE);
 		CloseHandle(handles[i]);
 	}
+	CloseHandle(handles[num_threads]);
 
 	// connect to a server; test basic winsock functionality
 	//winsock_test ();
